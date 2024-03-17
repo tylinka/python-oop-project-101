@@ -81,3 +81,19 @@ class StringScheme(BasicScheme):
         if self._min_length is not None and len(text) < self._min_length:
             return False
         return True
+
+
+class DictScheme(BasicScheme):
+    def __init__(self):
+        super().__init__()
+        self._shape = None
+
+    def shape(self, rules):
+        self._shape = rules
+        return self
+
+    def is_valid(self, dictionary):
+        for key, value in dictionary.items():
+            if key in self._shape and not self._shape[key].is_valid(value):
+                return False
+        return True

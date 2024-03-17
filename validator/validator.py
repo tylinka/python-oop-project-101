@@ -1,4 +1,4 @@
-from validator.schemes import StringScheme, NumberScheme, ListScheme
+from validator.schemes import StringScheme, NumberScheme, ListScheme, DictScheme
 
 
 class Validator:
@@ -13,3 +13,8 @@ class Validator:
     @staticmethod
     def list():
         return ListScheme()
+
+    @staticmethod
+    def dict():
+        return DictScheme()
+
