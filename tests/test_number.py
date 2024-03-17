@@ -56,4 +56,5 @@ def test_range(validator):
 def test_fluent(validator):
     schema = validator.number()
     assert schema.positive().is_valid(10) is True
-    assert validator.number().positive().required().positive().is_valid(-10) is True
+    assert (validator.number().positive().required().positive().is_valid(-10)
+            is True)
